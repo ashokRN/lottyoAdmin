@@ -1,0 +1,14 @@
+[
+  {
+    "userId": "6214eaf11fb51464f4075d1a",
+    "name": "Mini Jackpot",
+    "totalCount": 2000,
+    "ticketPrice": 1,
+    "winningCount": 3,
+    "startDate": "2022-03-15T21:30:25",
+    "closeDate": "2022-03-15T23:50:25",
+    "resultDate": "2022-03-16T24:00:00",
+    "minBuyCount": 1,
+    "maxBuyCount": 10
+  }
+]

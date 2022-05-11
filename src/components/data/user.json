@@ -1,0 +1,223 @@
+[{
+    "userName": "admin",
+    "email": "admin@gmail.com",
+    "countryCode": "+91",
+    "phoneNo": "8903875977",
+    "password": "Admin@123",
+    "PAN": {
+        "name": "ASHOKKUMAR A",
+        "number": "COIPA4360K",
+        "typeOfHolder": "Individual or Person",
+        "isIndividual": true,
+        "isValid": true,
+        "firstName": "ASHOK",
+        "middleName": "",
+        "lastName": "KUMAR",
+        "title": "Shri",
+        "panStatus": "VALID",
+        "panStatusCode": "E",
+        "aadhaarSeedingStatus": "Aadhaar Seeding is Successful",
+        "aadhaarSeedingStatusCode": "Y",
+        "lastUpdatedOn": "28/11/2017"
+    }
+},{
+    "userName": "Ashok",
+    "email": "ashok@gmail.com",
+    "countryCode": "+91",
+    "phoneNo": "8903875977",
+    "password": "Admin@123",
+    "PAN": {
+        "name": "ASHOK",
+        "number": "COIPA4360K",
+        "typeOfHolder": "Individual or Person",
+        "isIndividual": true,
+        "isValid": true,
+        "firstName": "ASHOK",
+        "middleName": "",
+        "lastName": "KUMAR A",
+        "title": "Shri",
+        "panStatus": "VALID",
+        "panStatusCode": "E",
+        "aadhaarSeedingStatus": "Aadhaar Seeding is Successful",
+        "aadhaarSeedingStatusCode": "Y",
+        "lastUpdatedOn": "28/11/2017"
+    }
+},{
+    "userName": "Arun",
+    "email": "arun@gmail.com",
+    "countryCode": "+91",
+    "phoneNo": "8903875977",
+    "password": "Admin@123",
+    "PAN": {
+        "name": "ASHOKKUMAR A",
+        "number": "COIPA4360K",
+        "typeOfHolder": "Individual or Person",
+        "isIndividual": true,
+        "isValid": true,
+        "firstName": "ARUN",
+        "middleName": "",
+        "lastName": "ASHOKKUMAR",
+        "title": "Shri",
+        "panStatus": "VALID",
+        "panStatusCode": "E",
+        "aadhaarSeedingStatus": "Aadhaar Seeding is Successful",
+        "aadhaarSeedingStatusCode": "Y",
+        "lastUpdatedOn": "28/11/2017"
+    }
+},{
+    "userName": "Siva",
+    "email": "siva@gmail.com",
+    "countryCode": "+91",
+    "phoneNo": "8903875977",
+    "password": "Admin@123",
+    "PAN": {
+        "name": "ASHOKKUMAR A",
+        "number": "COIPA4360K",
+        "typeOfHolder": "Individual or Person",
+        "isIndividual": true,
+        "isValid": true,
+        "firstName": "SIVA",
+        "middleName": "",
+        "lastName": "SIVAKUMAR",
+        "title": "Shri",
+        "panStatus": "VALID",
+        "panStatusCode": "E",
+        "aadhaarSeedingStatus": "Aadhaar Seeding is Successful",
+        "aadhaarSeedingStatusCode": "Y",
+        "lastUpdatedOn": "28/11/2017"
+    }
+},{
+    "userName": "sakthi",
+    "email": "sakthi@gmail.com",
+    "countryCode": "+91",
+    "phoneNo": "8903875977",
+    "password": "Admin@123",
+    "PAN": {
+        "name": "SAKTHI K",
+        "number": "COIPA4360K",
+        "typeOfHolder": "Individual or Person",
+        "isIndividual": true,
+        "isValid": true,
+        "firstName": "SAKTHI",
+        "middleName": "",
+        "lastName": "NANDAKUMAR",
+        "title": "Shri",
+        "panStatus": "VALID",
+        "panStatusCode": "E",
+        "aadhaarSeedingStatus": "Aadhaar Seeding is Successful",
+        "aadhaarSeedingStatusCode": "Y",
+        "lastUpdatedOn": "28/11/2017"
+    }
+},{
+    "userName": "Ranjith",
+    "email": "ranjith@gmail.com",
+    "countryCode": "+91",
+    "phoneNo": "8903875977",
+    "password": "Admin@123",
+    "PAN": {
+        "name": "RANJITH ",
+        "number": "COIPA4360K",
+        "typeOfHolder": "Individual or Person",
+        "isIndividual": true,
+        "isValid": true,
+        "firstName": "RANJITH",
+        "middleName": "",
+        "lastName": "RANJITHKUMAR",
+        "title": "Shri",
+        "panStatus": "VALID",
+        "panStatusCode": "E",
+        "aadhaarSeedingStatus": "Aadhaar Seeding is Successful",
+        "aadhaarSeedingStatusCode": "Y",
+        "lastUpdatedOn": "28/11/2017"
+    }
+},{
+    "userName": "Sathish",
+    "email": "sathish@gmail.com",
+    "countryCode": "+91",
+    "phoneNo": "8903875977",
+    "password": "Admin@123",
+    "PAN": {
+        "name": "SATHISH T",
+        "number": "COIPA4360K",
+        "typeOfHolder": "Individual or Person",
+        "isIndividual": true,
+        "isValid": true,
+        "firstName": "SATHISH",
+        "middleName": "",
+        "lastName": "SATHISHKUMAR",
+        "title": "Shri",
+        "panStatus": "VALID",
+        "panStatusCode": "E",
+        "aadhaarSeedingStatus": "Aadhaar Seeding is Successful",
+        "aadhaarSeedingStatusCode": "Y",
+        "lastUpdatedOn": "28/11/2017"
+    }
+},{
+    "userName": "vishnu",
+    "email": "vishnu@gmail.com",
+    "countryCode": "+91",
+    "phoneNo": "8903875977",
+    "password": "Admin@123",
+    "PAN": {
+        "name": "VISHNU",
+        "number": "COIPA4360K",
+        "typeOfHolder": "Individual or Person",
+        "isIndividual": true,
+        "isValid": true,
+        "firstName": "VISHNU",
+        "middleName": "",
+        "lastName": "VISHUKUMAR",
+        "title": "Shri",
+        "panStatus": "VALID",
+        "panStatusCode": "E",
+        "aadhaarSeedingStatus": "Aadhaar Seeding is Successful",
+        "aadhaarSeedingStatusCode": "Y",
+        "lastUpdatedOn": "28/11/2017"
+    }
+},{
+    "userName": "Nirmal",
+    "email": "nirmal@gmail.com",
+    "countryCode": "+91",
+    "phoneNo": "8903875977",
+    "password": "Admin@123",
+    "PAN": {
+        "name": "NIRMAL ",
+        "number": "COIPA4360K",
+        "typeOfHolder": "Individual or Person",
+        "isIndividual": true,
+        "isValid": true,
+        "firstName": "NIRMAL",
+        "middleName": "",
+        "lastName": "NIRMALKUMAR",
+        "title": "Shri",
+        "panStatus": "VALID",
+        "panStatusCode": "E",
+        "aadhaarSeedingStatus": "Aadhaar Seeding is Successful",
+        "aadhaarSeedingStatusCode": "Y",
+        "lastUpdatedOn": "28/11/2017"
+    }
+},{
+    "userName": "Sriramalu",
+    "email": "sri@gmail.com",
+    "countryCode": "+91",
+    "phoneNo": "8903875977",
+    "password": "Admin@123",
+    "PAN": {
+        "name": "SRIRAMALU A",
+        "number": "COIPA4360K",
+        "typeOfHolder": "Individual or Person",
+        "isIndividual": true,
+        "isValid": true,
+        "firstName": "SRI",
+        "middleName": "",
+        "lastName": "SRIRAMALU",
+        "title": "Shri",
+        "panStatus": "VALID",
+        "panStatusCode": "E",
+        "aadhaarSeedingStatus": "Aadhaar Seeding is Successful",
+        "aadhaarSeedingStatusCode": "Y",
+        "lastUpdatedOn": "28/11/2017"
+    }
+}
+
+]
