@@ -1,23 +1,12 @@
-
-
-import React from 'react'
-import {BrowserRouter, Route, Switch,}  from "react-router-dom";
-import Event from './components/Event_booking/Event';
-import User from './components/User_Management/User'
+import React from 'react';
+import MainLayout from './layouts/MainLayout';
 
 const App = () => {
-  return (
-    <BrowserRouter>
-    {
-      <Switch>
-        <Route path='/event' component={Event}/>
-        <Route path='/user' component={User}/>
-
-       </Switch>
-    }
-    </BrowserRouter>
-  )
-}
+     return (
+          <React.Suspense fallback={<h1>Loading...</h1>}>
+               <MainLayout />
+          </React.Suspense>
+     );
+};
 
 export default App;
-
