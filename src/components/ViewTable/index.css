@@ -1,0 +1,73 @@
+.view-table-container {
+     /* border: 1px solid #000; */
+     width: 100%;
+     margin: 20px 0px !important;
+}
+.view-table-header-colum {
+     text-transform: capitalize !important;
+     font-size: 12px !important;
+     font-family: Monstserrat-SemiBold !important;
+}
+.view-table-body-colum {
+     font-size: 12px !important;
+     font-family: Monstserrat-Medium !important;
+}
+.view-table-delete-btn-con {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+.tableFixHead {
+     overflow: auto;
+     scrollbar-width: thin !important;
+     height: 400px;
+     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+     width: 100% !important;
+}
+.tableFixHead thead th {
+     position: sticky !important;
+     top: 0 !important;
+     z-index: 1 !important;
+}
+
+/* Just common table stuff. Really. */
+table {
+     border-collapse: collapse !important;
+     width: 100% !important;
+}
+th,
+td {
+     padding: 8px 16px !important;
+     border: 1px solid #efefef !important;
+     text-align: center;
+     /* font-size: 14px !important; */
+}
+th {
+     background-color: #207fdb !important;
+     color: #fff;
+     border: 1px solid #fff !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+     width: 3px;
+     height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+     box-shadow: inset 0 0 5px #efefef;
+     border-radius: 0px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+     background: #dadada;
+     border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+     background: #efefef;
+}

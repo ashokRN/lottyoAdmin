@@ -3,14 +3,14 @@ import { Col, Container, Row } from 'reactstrap';
 import '../styles/AdminPanel.css';
 import ViewTable from '../../components/ViewTable';
 
-const ViewEvent = ({ history }) => {
+const ViewCoin = ({ history }) => {
      return (
           <Container className='lottery-admin-panel-view-container' fluid>
                <Row className='lottery-admin-panel-view-table--header-row-container'>
                     <Col lg={10} className='lottery-admin-panel-view-table-header-colum-container'>
-                         Event
-                         <div className='lottery-admin-panel-addbtn' onClick={() => history.push('event/add')}>
-                              ADD EVENT
+                         COINS
+                         <div className='lottery-admin-panel-addbtn' onClick={() => history.push('coin/add')}>
+                              ADD COIN
                          </div>
                     </Col>
                </Row>
@@ -23,4 +23,4 @@ const ViewEvent = ({ history }) => {
      );
 };
 
-export default ViewEvent;
+export default ViewCoin;

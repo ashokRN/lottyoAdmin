@@ -12,6 +12,11 @@ const AddEvent = React.lazy(() => import('../pages/Events/AddEvent'));
 const ViewEvent = React.lazy(() => import('../pages/Events/ViewEvent'));
 const EditEvent = React.lazy(() => import('../pages/Events/EditEvent'));
 
+/** Coin Route Imports */
+const AddCoin = React.lazy(() => import('../pages/Coin/AddCoin'));
+const ViewCoin = React.lazy(() => import('../pages/Coin/ViewCoin'));
+const EditCoin = React.lazy(() => import('../pages/Coin/EditCoin'));
+
 const Routes = [
      {
           path: '/login',
@@ -40,6 +45,36 @@ const Routes = [
      {
           path: '/event/:id',
           component: EditEvent,
+          layout: LandingLayout,
+          exact: true,
+     },
+     {
+          path: '/user',
+          component: ViewEvent,
+          layout: LandingLayout,
+          exact: true,
+     },
+     {
+          path: '/coin',
+          component: ViewCoin,
+          layout: LandingLayout,
+          exact: true,
+     },
+     {
+          path: '/coin/add',
+          component: AddCoin,
+          layout: LandingLayout,
+          exact: true,
+     },
+     {
+          path: '/coin/:id',
+          component: EditCoin,
+          layout: LandingLayout,
+          exact: true,
+     },
+     {
+          path: '/payment',
+          component: ViewEvent,
           layout: LandingLayout,
           exact: true,
      },

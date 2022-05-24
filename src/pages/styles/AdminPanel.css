@@ -1,0 +1,122 @@
+.lottery-admin-panel-view-container {
+     padding: 0px 20px !important;
+}
+.lottery-admin-panel-view-table--header-row-container {
+     /* border: 1px solid #000; */
+     padding: 0px !important;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+.lottery-admin-panel-view-table-header-colum-container {
+     height: 100px;
+     border-bottom: 1px solid #d2d2d2;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     font-size: 25px;
+     font-weight: bold;
+     color: #000;
+     font-family: Monstserrat-SemiBold;
+}
+.lottery-admin-panel-addbtn {
+     width: 12%;
+     height: 40px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-size: 15px;
+     font-weight: bold;
+     background-color: #207fdb;
+     color: #fff;
+     box-shadow: rgba(32, 127, 219, 0.24) 0px 3px 8px;
+     cursor: pointer;
+}
+.lottery-admin-panel-view-table-row-container {
+     /* border: 1px solid #000; */
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+.lottery-admin-panel-view-table-colum-container {
+     /* border: 1px solid #000; */
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     padding: 0px !important;
+}
+.lottert-admin-panel-form-container {
+     /* border: 1px solid #000; */
+     margin: 20px 0px;
+     padding: 20px;
+     padding-bottom: 40px;
+     width: 100%;
+     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.splitter-des-container {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+}
+
+/** Btn Container */
+.lottery-admin-panel-view-table-btn-row-container {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+.lottery-admin-panel-view-table-btn-colum-container {
+     /* border: 1px solid; */
+     display: flex;
+     justify-content: flex-end;
+     align-items: center;
+     column-gap: 20px;
+     height: 80px;
+}
+.reset-btn {
+     height: 40px;
+     /* border: 1px solid; */
+     width: 15%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-family: Monstserrat-SemiBold;
+     background-color: #ff4444;
+     box-shadow: rgba(255, 68, 68, 0.2) 0px 2px 8px 0px;
+     color: #fff;
+     cursor: pointer;
+}
+.create-btn {
+     height: 40px;
+     /* border: 1px solid; */
+     width: 15%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-family: Monstserrat-SemiBold;
+     background-color: #00c851;
+     box-shadow: rgba(0, 200, 81, 0.2) 0px 2px 8px 0px;
+     color: #fff;
+     cursor: pointer;
+}
+.back-header-container {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     column-gap: 20px;
+}
+.back-header-icon {
+     width: 50px;
+     height: 50px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     border-radius: 100%;
+     background-color: #207fdb;
+     box-shadow: rgba(32, 127, 219, 0.24) 0px 3px 8px;
+     color: #fff;
+     cursor: pointer;
+}
+.back-header-name {
+     font-size: 25px;
+}

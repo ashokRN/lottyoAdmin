@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 const MainLayout = () => {
      const RouteWithLayout = ({ component: Component, layout: Layout, ...rest }) => {
           const _RenderRoute = (props) => (
-               <Layout>
+               <Layout {...props}>
                     <Component {...props} />
                </Layout>
           );
