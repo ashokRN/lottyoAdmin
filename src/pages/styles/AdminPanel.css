@@ -120,3 +120,17 @@
 .back-header-name {
      font-size: 25px;
 }
+
+div [status='ENDED'] {
+     color: red;
+     font-weight: bold;
+}
+div [status='ONGOING'] {
+     color: orange;
+     font-weight: bold;
+}
+
+div [active='true'] {
+     color: green;
+     font-weight: bold;
+}
