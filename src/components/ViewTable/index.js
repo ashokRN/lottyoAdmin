@@ -41,14 +41,17 @@ const removeStr = (str) => {
      return str.replace(strs[0], '').replace(strs[1], '');
 };
 
-const ViewTable = ({ data = sampleData, removeItem, deleteItem = false, editItem = false, editFn, viewBtn = true }) => {
+const ViewTable = ({ data = sampleData, removeItem, deleteItem = false, editItem = false, editFn, viewBtn = true, view }) => {
+
      let TableHeaderData = Object.keys(Object.assign({}, ...data));
 
-     const ViewBtn = ({ index }) => {
+
+     const ViewBtn = ({itemData, index }) => {
+          console.log(index, 'index');
           return (
                <td>
                     <div className='view-table-delete-btn-con'>
-                         <BsEyeFill onClick={() => removeItem(index)} color={'#00c851'} size={18} />
+                         <BsEyeFill color={'#00c851'} size={18} onClick={() => view(itemData,index)} />
                     </div>
                </td>
           );
@@ -98,6 +101,7 @@ const ViewTable = ({ data = sampleData, removeItem, deleteItem = false, editItem
           let bodyTable = [];
           for (let index = 0; index < tableData.length; index++) {
                const element = tableData[index];
+               console.log(element);
                let jsx = (
                     <tr key={index}>
                          {/* <th scope='row'>{index + 1}</th> */}
@@ -106,7 +110,7 @@ const ViewTable = ({ data = sampleData, removeItem, deleteItem = false, editItem
                                    {element[x]}
                               </td>
                          ))}
-                         {viewBtn && <ViewBtn />}
+                         {viewBtn && <ViewBtn itemData={element} index={index}/>}
                          {editItem && <EditBtn data={element} />}
                          {deleteItem && <DeleteBtn index={index} />}
                     </tr>
