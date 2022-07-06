@@ -41,14 +41,14 @@ const removeStr = (str) => {
      return str.replace(strs[0], '').replace(strs[1], '');
 };
 
-const ViewTable = ({ data = sampleData, removeItem, deleteItem = false, editItem = false, editFn, viewBtn = true }) => {
+const ViewTable = ({ data = sampleData, removeItem, viewItem, deleteItem = false, editItem = false, editFn, viewBtn = true }) => {
      let TableHeaderData = Object.keys(Object.assign({}, ...data));
 
      const ViewBtn = ({ index }) => {
           return (
                <td>
                     <div className='view-table-delete-btn-con'>
-                         <BsEyeFill onClick={() => removeItem(index)} color={'#00c851'} size={18} />
+                         <BsEyeFill onClick={() => viewItem(index)} color={'#00c851'} size={18} />
                     </div>
                </td>
           );
@@ -75,11 +75,13 @@ const ViewTable = ({ data = sampleData, removeItem, deleteItem = false, editItem
      const TableHead = ({ headData = [] }) => {
           let heads = [];
           for (let index = 0; index < headData.length; index++) {
-               heads.push(
-                    <th key={index} className='view-table-header-colum'>
-                         {CAMEL_TO_WORD(removeStr(String(headData[index])))}
-                    </th>,
-               );
+               if (headData[index] !== 'ID') {
+                    heads.push(
+                         <th key={index} className='view-table-header-colum'>
+                              {CAMEL_TO_WORD(removeStr(String(headData[index])))}
+                         </th>,
+                    );
+               }
           }
           return (
                <thead>
@@ -101,12 +103,8 @@ const ViewTable = ({ data = sampleData, removeItem, deleteItem = false, editItem
                let jsx = (
                     <tr key={index}>
                          {/* <th scope='row'>{index + 1}</th> */}
-                         {TableHeaderData.map((x, i) => (
-                              <td key={i} className={'view-table-body-colum'}>
-                                   {element[x]}
-                              </td>
-                         ))}
-                         {viewBtn && <ViewBtn />}
+                         {TableHeaderData.map((x, i) =>  x !== 'ID' && <td key={i} className={'view-table-body-colum'}>{element[x]}</td>)}
+                         {viewBtn && <ViewBtn index={index} />}
                          {editItem && <EditBtn data={element} />}
                          {deleteItem && <DeleteBtn index={index} />}
                     </tr>

@@ -6,6 +6,7 @@ const NAVS = [
      { name: 'Users', path: '/user' },
      { name: 'Coin', path: '/coin' },
      { name: 'Payment', path: '/payment' },
+     { name: 'Result', path: '/result' }
 ];
 
 const SideBar = ({ history }) => {

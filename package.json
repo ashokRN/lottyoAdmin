@@ -17,6 +17,7 @@
     "react-icons": "^4.3.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "5.0.0",
+    "react-select": "^5.4.0",
     "react-virtualized": "^9.22.3",
     "reactstrap": "^9.0.2",
     "web-vitals": "^2.1.4"

@@ -16,6 +16,9 @@ const EditEvent = React.lazy(() => import('../pages/Events/EditEvent'));
 const AddCoin = React.lazy(() => import('../pages/Coin/AddCoin'));
 const ViewCoin = React.lazy(() => import('../pages/Coin/ViewCoin'));
 const EditCoin = React.lazy(() => import('../pages/Coin/EditCoin'));
+const ViewResult = React.lazy(() => import('../pages/Result/ViewResult'));
+const ViewWinner = React.lazy(() => import('../pages/Result/ViewWinner'));
+const AddResult = React.lazy(() => import('../pages/Result/AddResult'));
 
 const Routes = [
      {
@@ -75,6 +78,24 @@ const Routes = [
      {
           path: '/payment',
           component: ViewEvent,
+          layout: LandingLayout,
+          exact: true,
+     },
+     {
+          path: '/result',
+          component: ViewResult,
+          layout: LandingLayout,
+          exact: true,
+     },
+     {
+          path: '/result/view/:id',
+          component: ViewWinner,
+          layout: LandingLayout,
+          exact: true,
+     },
+     {
+          path: '/result/add',
+          component: AddResult,
           layout: LandingLayout,
           exact: true,
      },
