@@ -56,7 +56,7 @@ const ViewResult = ({ history }) => {
                </Row>
                <Row className='lottery-admin-panel-view-table-row-container'>
                     <Col lg={10} className='lottery-admin-panel-view-table-colum-container'>
-                        <ViewTable data={events} viewItem={(index) => history.push(`result/view/${events[index].ID}`)} viewBtn={true} />
+                        <ViewTable data={events} view={(index) => history.push(`result/view/${events[index].ID}`)} viewBtn={true} />
                     </Col>
                </Row>
           </Container>

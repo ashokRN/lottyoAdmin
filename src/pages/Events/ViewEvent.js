@@ -73,8 +73,8 @@ const ViewEvent = ({ history }) => {
                console.log(error)
           }
      }
-     const _viewData = (itemData, index) => {
-          // console.log(data)
+     const _viewData = (index, itemData) => {
+          console.log(itemData,"12312312312337/dsfghjgfds");
           let data = actEvent[index];
           setHideShow({ ...hideShow, hide: false, show: true })
           setGetData(itemData);
@@ -115,7 +115,7 @@ const ViewEvent = ({ history }) => {
 
 
 
-                              <Row style={{ rowGap: "20px" }}>
+                              {getData !== null  && (<Row style={{ rowGap: "20px" }}>
                                    <Col lg={3}>
                                         <div className='lottery-admin-panel-inner-table-header'>
                                              <div className='lottery-admin-panel-inner-table-text'>
@@ -210,7 +210,7 @@ const ViewEvent = ({ history }) => {
                                         </div>
 
                                    </Col>
-                              </Row>
+                              </Row>)}
 
                               <hr />
                               <h4>
