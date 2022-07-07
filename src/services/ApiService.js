@@ -5,8 +5,18 @@ const USER_ID = '6279264f16748f6d9bb92f46';
 export const GET_ALL_EVENTS = async (str) => {
      let response;
      try {
-          response = await fetch(`${API_URL}/api/event/get/all/${USER_ID}?${str}`);
-          if (response) return response.json();
+          response = await fetch(`${API_URL}/api/event/get/all/${USER_ID}`);
+          if (response) return await response.json();
+     } catch (error) {
+          console.log(error);
+     }
+};
+
+export const GET_ALL_TICKETS = async (id) => {
+     let response;
+     try {
+          response = await fetch(`${API_URL}/api/ticket/get/all/event/${USER_ID}/${id}`);
+          if (response) return await response.json();
      } catch (error) {
           console.log(error);
      }
