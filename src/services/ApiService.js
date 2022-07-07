@@ -2,10 +2,10 @@ import { API_URL } from '../config/Config';
 
 const USER_ID = '6279264f16748f6d9bb92f46';
 
-export const GET_ALL_EVENTS = async () => {
+export const GET_ALL_EVENTS = async (str) => {
      let response;
      try {
-          response = await fetch(`${API_URL}/api/event/get/all/${USER_ID}`);
+          response = await fetch(`${API_URL}/api/event/get/all/${USER_ID}?${str}`);
           if (response) return response.json();
      } catch (error) {
           console.log(error);
@@ -42,13 +42,41 @@ export const GET_WINNERS_EVENT = async (id) => {
      }
 };
 
-export const ADD_RESULT = async (data) => {
+export const CREATE_WINER = async (data) => {
      data.userId = USER_ID;
+     console.log(data);
      let response;
      try {
-          response = await fetch(`${API_URL}/api/winner/create`, { method: 'POST', body: data });
+          response = await fetch(`${API_URL}/api/winner/create`, { method: 'POST', body: JSON.stringify(data) });
           if (response) return response.json();
      } catch (error) {
           console.log(error);
      }
 };
+
+export const ADD_RESULT = async (data) => {
+     data.userId = USER_ID;
+     let response;
+     try {
+          response = await fetch(`${API_URL}/api/winner/manual/publish`,{
+                    method: 'PUT',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+           });
+          if (response) return response.json();
+     } catch (error) {
+          console.log(error);
+     }
+}
+
+export const GET_TICKETS_EVENT = async (id) => {
+     let response;
+     try {
+          response = await fetch(`${API_URL}/api/ticket/get/all/event/${USER_ID}/${id}`);
+          if (response) return response.json();
+     } catch (error) {
+          console.log(error);
+     }
+}

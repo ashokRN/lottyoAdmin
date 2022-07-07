@@ -31,7 +31,7 @@ const ViewResult = ({ history }) => {
      const _getEvents = async () => {
           let response;
           try {
-               response = await GET_ALL_EVENTS();
+               response = await GET_ALL_EVENTS('status=ENDED');
                console.log(response, 'EVENTS');
                if (response.success) {
                     let data = response?.events.map(_structureData);
@@ -56,7 +56,7 @@ const ViewResult = ({ history }) => {
                </Row>
                <Row className='lottery-admin-panel-view-table-row-container'>
                     <Col lg={10} className='lottery-admin-panel-view-table-colum-container'>
-                        <ViewTable data={events} viewItem={(index) => history.push(`result/view/${events[index].ID}`)} viewBtn={false} />
+                        <ViewTable data={events} viewItem={(index) => history.push(`result/view/${events[index].ID}`)} viewBtn={true} />
                     </Col>
                </Row>
           </Container>

@@ -2,21 +2,20 @@ import React from 'react';
 import Select from 'react-select';
 import { Container, Row, Col, Badge } from 'reactstrap';
 import '../styles/AdminPanel.css';
-import { GET_ALL_EVENTS, ADD_RESULT } from './../../services/ApiService';
+import { GET_ALL_EVENTS, ADD_RESULT, GET_TICKETS_EVENT, GET_WINNERS_EVENT } from './../../services/ApiService';
 
-const AddResult = () => {
+const AddResult = ({ history }) => {
      const [events, setEvents] = React.useState([]);
-     const [column, setColumns] = React.useState([]);
+     const [event, setEvent] = React.useState({});
+     const [winners, setWinners] = React.useState([]);
      const [ticket, setTicket] = React.useState([]);
      const [select, setSelect] = React.useState(null);
      const [select1, setSelect1] = React.useState(null);
-     const [select2, setSelect2] = React.useState(null);
      const [selected, setSelected] = React.useState([]);
      const _getEvents = async () => {
           let response;
           try {
-               response = await GET_ALL_EVENTS();
-               console.log(response, 'EVENTS');
+               response = await GET_ALL_EVENTS('status=CLOSED');
                if (response.success) {
                     let data = response?.events.map((x, i) => {
                          return { value: x._id, label: `${x.name} Event (${String(x.startDate).substring(0, 10)})`, ...x };
@@ -30,66 +29,77 @@ const AddResult = () => {
      };
 
      const submitResult = async() => {
-        let response;
-        try {
-             response = await ADD_RESULT({ event: select._id, priceList: selected.map(x=> x.ticketNo) });
-             console.log(response, 'EVENTS');
-             if (response.success) {
-                  let data = response?.events.map((x, i) => {
-                       return { value: x._id, label: `${x.name} Event (${String(x.startDate).substring(0, 10)})`, ...x };
-                  });
-                  console.log(data);
-                  setEvents(data);
-             }
-        } catch (error) {
-             console.log(error);
-        }
+          if(selected.length !== select.winningCount){
+               alert(`You need to select more ${select.winningCount-selected.length} Winners`);
+          }else{
+               let response;
+               try {
+                    response = await ADD_RESULT({ event: select._id, tickets: selected });
+                    console.log(response, 'EVENTS');
+                    if (response.success) {
+                      history.push('/result');
+                    }
+               } catch (error) {
+                    console.log(error);
+               }
+          }
      }
 
-     const selectColumn = (e) => {
-          setSelect1(e);
-          setSelect2(null);
-          let val =
-               select.totalCount - parseInt(e.index) * select.maxTicketCount >= select.maxTicketCount
-                    ? select.maxTicketCount
-                    : select.totalCount - parseInt(e.index) * select.maxTicketCount;
-          let childs = [];
-          for (let z = 0; z < val; z++) {
-               childs.push({ label: z + 1, value: z + 1 });
-          }
-          setTicket(childs);
-     };
+     const structuredata = (data) => {
+          return data.map((x,i)=> {
+              return {
+                  ['SL.NO']: (i+1),
+                  ticketColumn: x.ticket.column,
+                  ticketNumber: x.ticket.ticketNumber,
+                  user: x.user.userName,
+                  winningPercent: x.percentage
+              }
+          })
+       };
 
-     const addTickets = () => {
-          if (selected.length !== select.winningCount) {
-               let data = {
-                    column: select1.value,
-                    ticket: select2.value,
-                    ticketNo: select1.index * select.maxTicketCount + parseInt(select2.value),
-               };
-               if (selected.filter((x) => x.ticketNo === data.ticketNo).length !== 0) {
-                    alert('Ticket already selected');
-               } else {
-                    setSelected([...selected, data]);
+     const _getWinner = async (id) => {
+          let response;
+          try {
+               response = await GET_WINNERS_EVENT(id);
+               console.log(response, 'WINNER');
+               if (response.success) {
+                    let datas = response?.winners;
+                    setWinners(structuredata(datas));
+                    let data = response?.event;
+                    setEvent(data);
                }
-          } else {
-               alert('Reached max winning count');
+          } catch (error) {
+               console.log(error);
           }
-          setSelect1(null);
-          setTicket([]);
-          setSelect2(null);
      };
 
      React.useEffect(() => _getEvents(), []);
 
-     const selectEvent = (e) => {
+     const selectEvent = async(e) => {
           setSelect(e);
-          setColumns([]);
-          setSelect1(null);
-          setTicket([]);
-          setSelect2(null);
-          setColumns(e.totalColumn.map((x, i) => ({ label: x, value: x, index: i })));
-     };
+          _getWinner(e._id);
+          let response;
+          try {
+               response = await GET_TICKETS_EVENT(e._id);
+               if (response.success) {
+                    let data = response?.tickets.map(x=> ({ value: x._id, label: `${x.column}-${x.ticketNumber}`, ...x }));
+                    console.log(data);
+                    setTicket(data);
+               }
+          } catch (error) {
+               console.log(error);
+          }
+     }
+
+     const selectTicket = (e) => {
+          if(selected.length === select.winningCount){
+               alert("Alrady reached the winning count limit");
+          }else{
+               setSelect1(e)
+               setSelected(e.map(x=> x._id));
+          }
+     }
+
      return (
           <Container className='lottery-admin-panel-view-container' fluid>
                <Row className='lottery-admin-panel-view-table--header-row-container'>
@@ -117,51 +127,20 @@ const AddResult = () => {
                               </Col>
                          </Row>
                          <Row>
-                              <Col lg={5}>
-                                   <p>Column</p>
-                                   <Select
-                                        placeholder={'Select Column'}
-                                        value={select1}
-                                        options={column}
-                                        onChange={(e) => selectColumn(e)}
-                                        isDisabled={column.length === 0}
-                                   />
-                              </Col>
-                              <Col lg={5}>
-                                   <p>Ticket Number</p>
+                              <Col lg={8}>
+                                   <p>Ticket</p>
                                    <Select
                                         placeholder={'Select Ticket'}
-                                        value={select2}
+                                        value={select1}
                                         options={ticket}
-                                        onChange={(e) => setSelect2(e)}
-                                        isDisabled={select1 === null}
+                                        isMulti={true}
+                                        closeMenuOnSelect={false}
+                                        onChange={(e) => selectTicket(e)}
+                                        isDisabled={ticket.length === 0}
                                    />
                               </Col>
-                              <Col lg={2} style={{ display: 'flex', alignItems: 'flex-end' }}>
-                                   <div className='add-btn' onClick={addTickets}>
-                                        ADD
-                                   </div>
-                              </Col>
                          </Row>
-                         <Row className='lottery-admin-panel-view-table--header-row-container'>
-                              <Col lg={12} className='lottery-admin-panel-view-table-header-colum-container'>
-                                   <p className={'font-size-name'}>SELECTED TICKETS</p>
-                              </Col>
-                         </Row>
-                         <Row>
-                              <Col lg={12} className=''>
-                                   <Row>
-                                        {selected.map((x) => (
-                                             <Col lg={2}>
-                                                  <Badge color='success' style={{ padding: '10px', margin: '5px', width: '100%' }}>
-                                                       {x.column} - {x.ticket}
-                                                  </Badge>
-                                             </Col>
-                                        ))}
-                                   </Row>
-                              </Col>
-                         </Row>
-                         <Row>
+                         <Row style={{padding: '10px'}}>
                               <Col lg={6}></Col>
                               <Col lg={3} style={{ display: 'flex', alignItems: 'flex-end' }}>
                                    <div className='remove-btn' onClick={()=> setSelected([])}>
