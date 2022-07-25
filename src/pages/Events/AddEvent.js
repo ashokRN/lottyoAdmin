@@ -3,6 +3,7 @@ import { Col, Container, Row } from 'reactstrap';
 import '../styles/AdminPanel.css';
 import Input from '../../components/Input';
 import { MdArrowBack } from 'react-icons/md';
+import { ADD_EVENT } from '../../services/ApiService';
 
 /**
  * 
@@ -19,6 +20,32 @@ import { MdArrowBack } from 'react-icons/md';
  */
 const AddEvent = ({ history }) => {
      const [entry, setEntry] = React.useState({});
+
+     const _singleEntryHandler = (name, value) => {
+          setEntry({ ...entry, [name]: value });
+     };
+
+
+
+     const _onSubmit = async () => {
+          let body = {
+               ...entry,
+               userId: '6279264f16748f6d9bb92f46',
+               startDate: new Date(entry['startDate']).toISOString(),
+               closeDate: new Date(entry['closeDate']).toISOString(),
+               resultDate: new Date(entry['resultDate']).toISOString(),
+          };
+          let response;
+          try {
+               response = await ADD_EVENT(body);
+               if (response?.success) {
+                    history.push('/event');
+               }
+          } catch (error) {
+               console.log(error);
+          }
+     };
+
      return (
           <Container className='lottery-admin-panel-view-container' fluid>
                <Row className='lottery-admin-panel-view-table--header-row-container'>
@@ -34,21 +61,98 @@ const AddEvent = ({ history }) => {
                <Row className='lottery-admin-panel-view-table-row-container'>
                     <Col lg={10} className='lottery-admin-panel-view-table-colum-container'>
                          <div className='lottert-admin-panel-form-container'>
-                              <Input name='Event Name' placeholder='Enter event name' width='98%' />
+                              <Input
+                                   name='Event Name'
+                                   keyname={'name'}
+                                   textChange={_singleEntryHandler}
+                                   placeholder='Enter event name'
+                                   width='98%'
+                                   value={entry['name']}
+                              />
                               <div className='splitter-des-container'>
-                                   <Input name='Total Count' placeholder='Enter total count' width='25%' />
-                                   <Input name='Ticket Price' placeholder='Enter ticket price' width='25%' />
-                                   <Input name='Winning Count' placeholder='Enter winning count' width='25%' />
-                                   <Input name='Max Price' placeholder='Enter max price' width='25%' />
+                                   <Input
+                                        name='Total Count'
+                                        type='number'
+                                        keyname={'totalCount'}
+                                        textChange={_singleEntryHandler}
+                                        placeholder='Enter total count'
+                                        width='25%'
+                                        value={entry['totalCount']}
+                                   />
+                                   <Input
+                                        name='Ticket Price'
+                                        type='number'
+                                        keyname={'ticketPrice'}
+                                        textChange={_singleEntryHandler}
+                                        placeholder='Enter ticket price'
+                                        width='25%'
+                                        value={entry['ticketPrice']}
+                                   />
+                                   <Input
+                                        name='Winning Count'
+                                        type='number'
+                                        keyname={'winningCount'}
+                                        textChange={_singleEntryHandler}
+                                        placeholder='Enter winning count'
+                                        width='25%'
+                                        value={entry['winningCount']}
+                                   />
+                                   <Input
+                                        name='Max Price'
+                                        type='number'
+                                        keyname={'maxPrice'}
+                                        textChange={_singleEntryHandler}
+                                        placeholder='Enter max price'
+                                        width='25%'
+                                        value={entry['maxPrice']}
+                                   />
                               </div>
                               <div className='splitter-des-container'>
-                                   <Input name='Start Date' placeholder='Enter event name' width='30%' type='date' />
-                                   <Input name='End Date' placeholder='Enter event name' width='30%' type='date' />
-                                   <Input name='Result Date' placeholder='Enter event name' width='30%' type='date' />
+                                   <Input
+                                        name='Start Date'
+                                        keyname={'startDate'}
+                                        textChange={_singleEntryHandler}
+                                        placeholder='select start date'
+                                        width='30%'
+                                        type='datetime-local'
+                                        value={entry['startDate']}
+                                   />
+                                   <Input
+                                        name='End Date'
+                                        keyname={'closeDate'}
+                                        textChange={_singleEntryHandler}
+                                        placeholder='select end date'
+                                        width='30%'
+                                        type='datetime-local'
+                                        value={entry['closeDate']}
+                                   />
+                                   <Input
+                                        name='Result Date'
+                                        keyname={'resultDate'}
+                                        textChange={_singleEntryHandler}
+                                        placeholder='select result date'
+                                        width='30%'
+                                        type='datetime-local'
+                                        value={entry['resultDate']}
+                                   />
                               </div>
                               <div className='splitter-des-container'>
-                                   <Input name='Min Buy Count' placeholder='Enter min count' width='50%' />
-                                   <Input name='Max Buy Count' placeholder='Enter max count' width='50%' />
+                                   <Input
+                                        name='Min Buy Count'
+                                        keyname={'minBuyCount'}
+                                        textChange={_singleEntryHandler}
+                                        placeholder='Enter min count'
+                                        width='50%'
+                                        value={entry['minBuyCount']}
+                                   />
+                                   <Input
+                                        name='Max Buy Count'
+                                        keyname={'maxBuyCount'}
+                                        textChange={_singleEntryHandler}
+                                        placeholder='Enter max count'
+                                        width='50%'
+                                        value={entry['maxBuyCount']}
+                                   />
                               </div>
                          </div>
                     </Col>
@@ -56,7 +160,9 @@ const AddEvent = ({ history }) => {
                <Row className='lottery-admin-panel-view-table-btn-row-container'>
                     <Col lg={10} className='lottery-admin-panel-view-table-btn-colum-container'>
                          <div className='reset-btn'>Reset</div>
-                         <div className='create-btn'>Create</div>
+                         <div className='create-btn' onClick={_onSubmit}>
+                              Create
+                         </div>
                     </Col>
                </Row>
           </Container>

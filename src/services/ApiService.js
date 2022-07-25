@@ -5,7 +5,7 @@ const USER_ID = '6279264f16748f6d9bb92f46';
 export const GET_ALL_EVENTS = async (str) => {
      let response;
      try {
-          response = await fetch(`${API_URL}/api/event/get/all/${USER_ID}?${str|| ''}`);
+          response = await fetch(`${API_URL}/api/event/get/all/${USER_ID}?${str || ''}`);
           if (response) return response.json();
      } catch (error) {
           console.log(error);
@@ -68,18 +68,18 @@ export const ADD_RESULT = async (data) => {
      data.userId = USER_ID;
      let response;
      try {
-          response = await fetch(`${API_URL}/api/winner/manual/publish`,{
-                    method: 'PUT',
-                    headers: {
-                      'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data),
-           });
+          response = await fetch(`${API_URL}/api/winner/manual/publish`, {
+               method: 'PUT',
+               headers: {
+                    'Content-Type': 'application/json',
+               },
+               body: JSON.stringify(data),
+          });
           if (response) return response.json();
      } catch (error) {
           console.log(error);
      }
-}
+};
 
 export const GET_TICKETS_EVENT = async (id) => {
      let response;
@@ -89,4 +89,36 @@ export const GET_TICKETS_EVENT = async (id) => {
      } catch (error) {
           console.log(error);
      }
-}
+};
+
+export const ADD_EVENT = async (body) => {
+     let response;
+     try {
+          response = await fetch(`${API_URL}/api/event/create`, {
+               method: 'POST',
+               headers: {
+                    'Content-type': 'application/json',
+               },
+               body: JSON.stringify(body),
+          });
+          return response.json();
+     } catch (error) {
+          console.log(error);
+     }
+};
+
+export const ADD_COIN = async (body) => {
+     let response;
+     try {
+          response = await fetch(`${API_URL}/api/coin/create`, {
+               method: 'POST',
+               headers: {
+                    'Content-type': 'application/json',
+               },
+               body: JSON.stringify(body),
+          });
+          return response.json();
+     } catch (error) {
+          console.log(error);
+     }
+};
